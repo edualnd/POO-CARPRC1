@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package aulasPoo.exerciciofixacao3;
 
 /**
@@ -9,20 +6,21 @@ package aulasPoo.exerciciofixacao3;
  * @author cg3034011
  */
 public class Aluno {
+    
     private String matricula;
     private String nome;
     private float notaProva1;
     private float notaProva2;
     private float notaTrabalho;
 
-    public Aluno(String matricula, String nome, float notaProva1, float notaProva2, float notaTrabalho) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
-        this.nome = nome;
-        this.notaProva1 = notaProva1;
-        this.notaProva2 = notaProva2;
-        this.notaTrabalho = notaTrabalho;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
     public void setNotaProva1(float notaProva1) {
         this.notaProva1 = notaProva1;
     }
