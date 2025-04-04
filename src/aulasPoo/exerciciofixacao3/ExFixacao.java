@@ -38,6 +38,9 @@ public class ExFixacao {
         }
     
     private static void exData() {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Informe um data (dd mm yy): ");
         System.out.println("A Fazer");
     }
     
