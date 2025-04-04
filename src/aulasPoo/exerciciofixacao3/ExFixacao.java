@@ -39,11 +39,64 @@ public class ExFixacao {
     
     private static void exData() {
         Scanner sc = new Scanner(System.in);
+        int ent;
         
-        System.out.println("Informe um data (dd mm yy): ");
-        System.out.println("A Fazer");
+        System.out.println("Deseja criar uma data personalizada?");
+        System.out.println("1 - Sim 2 - Nao");
+        ent = sc.nextInt();
+        if(ent == 1){
+            System.out.println("Digite a data (dd mm aaaa)");
+            Data data = new Data(sc.nextInt(),sc.nextInt(),sc.nextInt());
+            operacoesData(data);
+        }else{
+           Data data = new Data();
+           operacoesData(data);
+        } 
+        
     }
-    
+    private static void operacoesData(Data data) {
+        Scanner sc = new Scanner(System.in);
+        int ent;
+        do {            
+            System.out.printf("O que deseja fazer :%n"
+                + "1 - Imprimir data%n"
+                + "2 - Avancar um dia%n"
+                + "3 - Comparar datas%n"
+                + "4 - Saber se e bissexto%n>> ");
+            ent = sc.nextInt();
+
+            switch(ent){
+                case 1 -> System.out.println(data.toString());
+                case 2 -> {
+                    System.out.printf("Data atual: %s%n",data.toString());
+                    data.avancarDia();
+                    System.out.printf("Data avancada: %s%n",data.toString());
+                    
+                }
+                case 3 -> {
+                    System.out.println("Digite uma nova data (dd mm aaaa)");
+                    int res = data.CompararDatas(new Data(sc.nextInt(), sc.nextInt(), sc.nextInt()));
+                    switch(res){
+                        case 0 -> System.out.println(res + " - Iguais");
+                        case 1 -> System.out.println(res + " - " + data.toString() + " e uma data futura em relacao a nova data");
+                        case -1 -> System.out.println(res + " - "+ data.toString() + " e uma data passada em relacao a nova data");
+                    }
+                }
+                case 4 -> {
+                    if(data.isBissexto()){
+                        System.out.println("E bissexto");
+                    } else{
+                        System.out.println("Nao e bissexto");
+                    }
+                }
+                default -> System.out.println("Nao encontrado");
+            } 
+            
+            System.out.println("Deseja continuar?");
+            System.out.println("1- Sim 2- Nao");
+            ent = sc.nextInt();
+        } while (ent == 1);
+    }
     private static void exConta() {
         Scanner sc = new Scanner(System.in);
         ContaBancaria conta = new ContaBancaria();
@@ -177,12 +230,21 @@ public class ExFixacao {
            System.out.printf("Deseja saber:%n"
                 + "1 - Media%n"
                 + "2 - Recuperacao%n"
-                + ">> ");
+                + "3 - Nome%n"
+                + "4 - Matricula%n"
+                + "5 - Nota da prova 1%n"
+                + "6 - Nota da prova 2%n"
+                + "7 - Nota do Trabalho%n>> ");
             ent = sc.nextInt();
 
             switch(ent){
                 case 1 -> System.out.printf("Media: %.2f%n%n", aluno.media());
                 case 2 -> System.out.printf("Recuperacao: %.2f%n%n", aluno.rec());
+                case 3 -> System.out.printf("Nome: %s%n%n", aluno.getNome());
+                case 4 -> System.out.printf("Matricula: %s%n%n", aluno.getMatricula());
+                case 5 -> System.out.printf("Nota da prova 1: %.2f%n%n", aluno.getNotaProva1());
+                case 6 -> System.out.printf("Nota da prova 2: %.2f%n%n", aluno.getNotaProva2());
+                case 7 -> System.out.printf("Nota do trabalho: %.2f%n%n", aluno.getNotaTrabalho());
                 default -> System.out.println("Nao encontrado");
             } 
             System.out.println("Deseja continuar?");

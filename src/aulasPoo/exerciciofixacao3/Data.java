@@ -25,7 +25,10 @@ public class Data {
             this.mes = mes;
             this.ano = ano;
         }else{
-            System.out.println("Data invalida, os valores nao foram considerados");
+            System.out.println("Data invalida: Data sera a de hoje");
+            this.dia = LocalDate.now().getDayOfMonth();
+            this.mes = LocalDate.now().getMonthValue();
+            this.ano = LocalDate.now().getYear();
         }
         
     }
@@ -61,7 +64,7 @@ public class Data {
         }
         if(mes < 1 || mes > 12){mes = 0;}
         
-        return meses[mes] >= dia;
+        return meses[mes] >= dia && dia > 0 && ano > 0;
     }
     
     @Override
@@ -71,6 +74,9 @@ public class Data {
     
     public void avancarDia(){
         int[] meses = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+        if(isBissexto()){
+            meses[2] = 29;
+        }
         if(dia+1 > meses[mes]){
             dia = 1;
             if(mes ==12){

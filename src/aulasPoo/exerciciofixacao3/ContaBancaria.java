@@ -13,9 +13,11 @@ public class ContaBancaria {
         this.numConta = numConta;
     }
 
-    
+    public String getNumConta() {
+        return numConta;
+    }
     public void extrato(){
-        System.out.println("Saldo bancario: " + saldo);
+        System.out.printf("Num. Conta %s%nSaldo bancario: %.2f%n", getNumConta(), saldo);
     }
     
     public void saque(float retirada){
