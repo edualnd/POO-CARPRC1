@@ -239,7 +239,7 @@ public class ExFixacao {
 
             switch(ent){
                 case 1 -> System.out.printf("Media: %.2f%n%n", aluno.media());
-                case 2 -> System.out.printf("Recuperacao: %.2f%n%n", aluno.rec());
+                case 2 -> System.out.printf("Recuperacao: %.2f%n%n", aluno.recuperacao());
                 case 3 -> System.out.printf("Nome: %s%n%n", aluno.getNome());
                 case 4 -> System.out.printf("Matricula: %s%n%n", aluno.getMatricula());
                 case 5 -> System.out.printf("Nota da prova 1: %.2f%n%n", aluno.getNotaProva1());

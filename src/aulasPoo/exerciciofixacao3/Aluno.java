@@ -53,21 +53,21 @@ public class Aluno {
         this.notaTrabalho = notaTrabalho;
     }
 
-    
     public float media(){
-        float media = ((notaProva1 * 2.5f) + (notaProva2 * 2.5f) + (notaTrabalho * 2)) / 7;
+        final float PESOPROVA = 2.5f;
+        final float PESOTRABALHO = 2f;
+        float media = (PESOPROVA * (notaProva1 + notaProva2) + (notaTrabalho * PESOTRABALHO))/7;
+        
         return media;
     }
-    public float rec(){
+    public float recuperacao(){
         float media = media();
-        float notaNecessaria;
-        if(media>=6){
-            notaNecessaria = 0;
-        }else{
-            notaNecessaria = 12 - media;
+        float rec = 0;
+        if(media<6){
+        rec = 12 - media;
         }
-        
-        return notaNecessaria;
+        return rec;
+
     }
 }
 
