@@ -11,11 +11,6 @@ package aulasPoo.exerciciofixacao4;
 public class Tecnico extends Assistente {
     private double bonusSalarial;
 
-    public Tecnico(double bonusSalarial, String matricula, String nome, double salario) {
-        super(matricula, nome, salario);
-        this.bonusSalarial = bonusSalarial;
-    }
-
     public double getBonusSalarial() {
         return bonusSalarial;
     }

@@ -11,11 +11,6 @@ package aulasPoo.exerciciofixacao4;
 public class Assistente extends Funcionario{
     private String matricula;
 
-    public Assistente(String matricula, String nome, double salario) {
-        super(nome, salario);
-        this.matricula = matricula;
-    }
-
     public String getMatricula() {
         return matricula;
     }
