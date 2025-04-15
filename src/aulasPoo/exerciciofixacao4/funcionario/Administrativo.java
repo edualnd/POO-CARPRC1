@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package aulasPoo.exerciciofixacao4;
+package aulasPoo.exerciciofixacao4.funcionario;
 
 public class Administrativo extends Assistente{
     private String turno;
@@ -23,7 +23,7 @@ public class Administrativo extends Assistente{
 
     public void setAdicional(double adicional) {
         
-        this.adicional = adicional / 100;
+        this.adicional = adicional;
     }
     
     @Override

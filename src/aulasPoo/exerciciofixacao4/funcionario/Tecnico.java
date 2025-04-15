@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package aulasPoo.exerciciofixacao4;
+package aulasPoo.exerciciofixacao4.funcionario;
 
 /**
  *
@@ -20,7 +20,6 @@ public class Tecnico extends Assistente {
     }
     @Override
     public double ganhoAnual(){
-        
-        return super.ganhoAnual();
+        return super.ganhoAnual() + (12 * bonusSalarial );
     }
 }

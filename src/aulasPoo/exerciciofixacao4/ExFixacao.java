@@ -4,6 +4,8 @@
  */
 package aulasPoo.exerciciofixacao4;
 
+import aulasPoo.exerciciofixacao4.funcionario.Administrativo;
+import aulasPoo.exerciciofixacao4.funcionario.Tecnico;
 import java.util.Scanner;
 
 /**
@@ -42,7 +44,7 @@ public class ExFixacao {
     }
 
     private static void agenda() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("A fazer");
     }
 
     private static void admins() {
@@ -58,18 +60,35 @@ public class ExFixacao {
         a.setSalario(sc.nextDouble());
         System.out.println("Turno: 1 - Diurno 2 - Noturno");
         ent = sc.nextInt();
-        if(ent == 1){ a.setTurno("diurno");}
-        else{a.setTurno("noturno");}
-        System.out.printf("Adicional (%): ");
-        a.setAdicional(sc.nextDouble());
-        
+        if(ent == 1){ 
+            a.setTurno("diurno");
+            a.setAdicional(0);
+        }
+        else{
+            a.setTurno("noturno");
+            System.out.printf("Adicional Mensal (R%%): ");
+            a.setAdicional(sc.nextDouble());
+        }
+
         System.out.printf(a.exibeDados());
-        System.out.printf("%nAdicional: %.2f", a.getAdicional());
+        System.out.printf("%nAdicional noturno: %.2f", a.getAdicional());
         System.out.printf("%nSalario Anual: %.2f", a.ganhoAnual());
     }
 
     private static void tecnico() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Scanner sc = new Scanner(System.in);
+        Tecnico t = new Tecnico();
+        System.out.println("Digite:");
+        System.out.printf("Nome: ");
+        t.setNome(sc.next());
+        System.out.printf("Matricula: ");
+        t.setMatricula(sc.next());
+        System.out.printf("Salario: ");
+        t.setSalario(sc.nextDouble());
+        System.out.printf("Bonus Mensal (R%%): ");
+        t.setBonusSalarial(sc.nextDouble());
+        System.out.printf(t.exibeDados());
+        System.out.printf("%nSalario Anual: %.2f", t.ganhoAnual());
     }
     
 }
