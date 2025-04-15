@@ -11,75 +11,95 @@ package aulasPoo.exerciciofixacao4.agendaContatos;
  * @author cg3034011
  */
 public class Agenda {
-    private Pessoa[] list;
-    private int tamanho;
+    private Pessoa[] agenda;
+    private int size;
     
     public Agenda() {
-        this.list = new Pessoa[5];
-        this.tamanho = 0;
+        this.agenda = new Pessoa[5];
+        this.size = 0;
     }
     
-    public Pessoa[] getList() {
-        Pessoa[] items = new Pessoa[tamanho];
-        for(int i = 0; i < tamanho; i++){
-            items[i] = list[i];
+    public Pessoa[] getAgenda() {
+        Pessoa[] items = new Pessoa[size];
+        for(int i = 0; i < size; i++){
+            items[i] = agenda[i];
         }
         return items;
     }
     
     public void add(Pessoa n){
-        if(tamanho == list.length){
+        if(size == agenda.length){
             increaseSize();
         }
-        list[tamanho] = n;
-        tamanho++;
+        agenda[size] = n;
+        size++;
     }
     
     public void remove(){
-        if(tamanho != 0){
-            System.out.printf("Removendo list[%d]%n", tamanho-1);
-            list[tamanho-1] = null;
-            tamanho--;
+        if(size != 0){
+            agenda[size-1] = null;
+            size--;
         }
     }
     private void increaseSize(){
-        Pessoa[] newList = new Pessoa[tamanho+5];
-        for(int i = 0; i < list.length; i++){
-            newList[i] = list[i];
+        Pessoa[] newAgenda = new Pessoa[size+5];
+        for(int i = 0; i < agenda.length; i++){
+            newAgenda[i] = agenda[i];
         }
-        this.list = newList;
+        this.agenda = newAgenda;
     }
     
-    public void searchByName(String name){
-        for(Pessoa i : getList()){
-            if( i.getNome().equals(name)){
-                System.out.printf(i.toString());
-                System.out.println("");
+    public Pessoa searchByName(String name){
+        Pessoa res = null;
+        for(Pessoa i : getAgenda()){
+            if( i.getName().equals(name)){
+                res = i;
+            }
+        }
+        return res;
+    }
+    
+    public Pessoa searchByDocument(int document){
+        Pessoa res = null;
+        for(Pessoa i : getAgenda()){
+            if(i.getDocument() == (document)){
+                res = i;
             }
         }
         
+        return res;
+        
     }
     
-    public void searchByIdentity(int documento){
-        boolean found = false;
+    public void sortAgenda(){
+        Pessoa[] list = getAgenda();
+        int pf = 0;
         
-        for(PessoaFisica i : getList()){
-            if(i.getCpf().equals(documento)){
-                System.out.printf(i.toString());
-                System.out.println("");
-                found = true;
-            }
-        }
-        if(!found){
-            for(PessoaJuridica i : getList()){
-                if(i.getCnpj().equals(documento)){
-                    System.out.printf(i.toString());
-                    System.out.println("");
+        for (int i = 0; i < list.length - 1; i++) {
+            for (int j = 0; j < list.length - i - 1; j++) {
+                //Separa PJ e PF
+                if (list[j] instanceof PessoaJuridica && list[j+1] instanceof PessoaFisica ) {
+                    Pessoa temp = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = temp;
+                }
+                //Ordenar por cpf/cnpj
+                boolean isSameClass = list[j].getClass() == list[j+1].getClass();
+                
+                if (list[j].getDocument()> list[j+1].getDocument() && isSameClass) {
+                    Pessoa temp = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = temp;
                 }
             }
         }
         
         
+        //Nova agenda
+        for(int i = 0; i < list.length; i++){
+            agenda[i] = list[i];
+        }
     }
+    
     
 }

@@ -1,7 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+* Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+*/
 package aulasPoo.exerciciofixacao4.agendaContatos;
 
 /**
@@ -9,43 +9,51 @@ package aulasPoo.exerciciofixacao4.agendaContatos;
  * @author cg3034011
  */
 public class PessoaFisica extends Pessoa{
-    private String cpf;
-    private String dataNascimento;
-    private String estadoCivil;
+    private int cpf;
+    private String birthdate;
+    private String maritalStatus;
 
-    public PessoaFisica(String nome, String endereco, String email, String cpf, String dataNascimento, String estadoCivil) {
-        super(nome, endereco, email);
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
-        this.estadoCivil = estadoCivil;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
+    public PessoaFisica(int cpf, String name) {
+        super(name);
         this.cpf = cpf;
     }
 
+    public PessoaFisica(String name, String address, String email, int cpf, String birthdate, String maritalStatus) {
+        super(name, address, email);
+        this.cpf = cpf;
+        this.birthdate = birthdate;
+        this.maritalStatus = maritalStatus;
+    }
     
-    public String getDataNascimento() {
-        return dataNascimento;
+    
+    
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
     }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    
+    
+    public String getBirthdate() {
+        return birthdate;
     }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
+    
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
+    
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+    
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
     @Override
     public String toString(){
-        return super.toString() + "%nCPF: " + cpf + "%nData de Nascimento: " + dataNascimento + "%nEstado Civil: " + estadoCivil;
+        return super.toString() + "%nCPF: " + cpf + "%nData de Nascimento: " + birthdate + "%nEstado Civil: " + maritalStatus;
+    }
+    
+    @Override
+    public int getDocument(){
+        return cpf;
     }
 }
