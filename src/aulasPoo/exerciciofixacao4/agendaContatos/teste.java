@@ -49,10 +49,13 @@ public class teste {
         list.add(pj4);
         
         list.sortAgenda();
-        list.remove();
+        list.removeByIdentity(888888888);
+        list.removeByIdentity(444444444);
+        list.removeByIdentity(888888888);
         for(Pessoa a : list.getAgenda()){
             System.out.println(a.getName() + " document -- " + a.getDocument());
         }
+        
         
         
     }

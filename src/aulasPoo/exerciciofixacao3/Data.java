@@ -109,7 +109,7 @@ public class Data {
         }
         return ret;
     }
-    public boolean isBissexto(){
+    private boolean isBissexto(){
         boolean bissexto =(ano%4 == 0 && ano%100 !=0) || (ano%400 == 0);
         return bissexto;
     }

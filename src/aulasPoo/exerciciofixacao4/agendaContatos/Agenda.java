@@ -35,9 +35,15 @@ public class Agenda {
         size++;
     }
     
-    public void remove(){
+    public void removeByIdentity(int document){
         if(size != 0){
-            agenda[size-1] = null;
+            int i = 0;
+            for(Pessoa a : getAgenda()){
+                if( a.getDocument() != document ){
+                    agenda[i] = a;
+                   i++;
+                }  
+            }
             size--;
         }
     }
