@@ -56,13 +56,13 @@ public class Agenda {
     }
     
     public Pessoa searchByName(String name){
-        Pessoa res = null;
+        Pessoa rres = null;
         for(Pessoa i : getAgenda()){
             if( i.getName().equals(name)){
-                res = i;
+                rres = i;
             }
         }
-        return res;
+        return rres;
     }
     
     public Pessoa searchByDocument(int document){
@@ -83,7 +83,7 @@ public class Agenda {
         
         for (int i = 0; i < list.length - 1; i++) {
             for (int j = 0; j < list.length - i - 1; j++) {
-                //Separa PJ e PF
+                //Separar PJ e PF
                 if (list[j] instanceof PessoaJuridica && list[j+1] instanceof PessoaFisica ) {
                     Pessoa temp = list[j];
                     list[j] = list[j + 1];

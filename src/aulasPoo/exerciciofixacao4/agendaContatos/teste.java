@@ -39,6 +39,10 @@ public class teste {
         list.add(pf3);
         list.add(pj1);
         list.add(pj5);
+        for(Pessoa a : list.getAgenda()){
+            System.out.println(a.getName() + " document -- " + a.getDocument());
+        }
+        System.out.println("ouch");
         list.add(pf8);
         list.add(pf2);
         list.add(pj2);
