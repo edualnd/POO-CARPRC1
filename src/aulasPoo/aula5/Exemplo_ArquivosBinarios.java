@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package aulasPoo.aula5;
 
 import java.io.DataInputStream;
@@ -48,6 +45,7 @@ public class Exemplo_ArquivosBinarios {
                 res += (char) c;
             }
             JOptionPane.showMessageDialog(null, res);
+            System.out.println(res);
             dis.close();
         }
         catch (FileNotFoundException e) {
