@@ -1,4 +1,4 @@
-package aulasPoo.exerciciofixacao6;
+package aulasPoo.exerciciofixacao6.exfix2;
 
 import java.util.Scanner;
 

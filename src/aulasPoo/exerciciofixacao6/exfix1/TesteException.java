@@ -1,4 +1,4 @@
-package aulasPoo.exerciciofixacao6;
+package aulasPoo.exerciciofixacao6.exfix1;
 
 public class TesteException {
     public static void main(String[] args) {
