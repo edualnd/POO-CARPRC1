@@ -1,4 +1,4 @@
-package aulasPoo.exerciciofixacao7.exfix5;
+package aulasPoo.exerciciofixacao7.exfix5e6;
 
 import java.io.*;
 import java.util.Scanner;
@@ -26,39 +26,39 @@ public class teste {
         Scanner sc = new Scanner(System.in);
         String nome;
         int codigo, nota1, nota2;
+        try{
+            FileOutputStream fos = new FileOutputStream("src/aulasPoo/exerciciofixacao7/exfix5/result/"+disciplina, true);
+            DataOutputStream dos = new DataOutputStream(fos);
+            for (int i = 0; i < 3; i++) {
+                System.out.print("Digite o nome: ");
+                nome = sc.nextLine();
+                System.out.print("Digite o codigo: ");
+                codigo = sc.nextInt();
+                System.out.print("Digite o nota 1: ");
+                nota1 = sc.nextInt();
+                System.out.print("Digite o nota 2: ");
+                nota2 = sc.nextInt();
 
-        for (int i = 0; i < 3; i++) {
-            System.out.print("Digite o nome: ");
-            nome = sc.nextLine();
-            System.out.print("Digite o codigo: ");
-            codigo = sc.nextInt();
-            System.out.print("Digite o nota 1: ");
-            nota1 = sc.nextInt();
-            System.out.print("Digite o nota 2: ");
-            nota2 = sc.nextInt();
-
-            try{
-                FileOutputStream fos = new FileOutputStream(disciplina, true);
-                DataOutputStream dos = new DataOutputStream(fos);
                 dos.writeInt(nome.length());
                 dos.writeChars(nome);
                 dos.writeInt(nota1);
                 dos.writeInt(nota2);
                 dos.flush();
 
-            }catch (FileNotFoundException e){
-                System.out.println("Arquivo nao encontrado");
-            } catch (IOException e) {
-                System.out.println("Erro ao abrir");
+                sc.nextLine();
             }
-
-            sc.nextLine();
+            dos.close();
+        }catch (FileNotFoundException e){
+            System.out.println("Arquivo nao encontrado");
+        } catch (IOException e) {
+            System.out.println("Erro ao abrir");
         }
+
 
     }
     private static void lerDados(String disciplina) {
         try {
-            FileInputStream fis = new FileInputStream(disciplina);
+            FileInputStream fis = new FileInputStream("src/aulasPoo/exerciciofixacao7/exfix5/result/"+disciplina);
             DataInputStream dis = new DataInputStream(fis);
             StringBuilder nome = new StringBuilder();
             int[] nota1 = new int[3];
@@ -84,6 +84,7 @@ public class teste {
                 System.out.println("Nota 2: " + nota2[t]);
                 System.out.println("Situação: " + situacao);
                 System.out.println("-------------------");
+                nome.delete(0,nome.length());
                 t++;
             }
             float mediaTurma= 0;
